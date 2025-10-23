@@ -120,3 +120,8 @@
 }
 
 
+@layer utilities {
+  .section-content {
+    @apply xl:px-20 md:px-12 px-3;
+  }
+}

@@ -8,7 +8,7 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="mt-5 relative w-full h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
+            className="mt-5 relative w-full md:h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
         >
 
             <video
@@ -26,29 +26,51 @@ export default function Hero() {
 
             <motion.div
                 initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="relative z-10 max-w-2xl px-4"
             >
-                <h1 className="font-extrabold text-4xl md:text-6xl text-gray-900 drop-shadow-sm">
+                <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="font-extrabold text-4xl md:text-6xl text-gray-900 drop-shadow-sm"
+                >
                     From Ocean to Table
-                </h1>
-                <h2 className="font-bold text-3xl md:text-5xl mt-2 text-blue-500">
+                </motion.h1>
+
+                <motion.h2
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="font-bold text-3xl md:text-5xl mt-2 text-blue-500"
+                >
                     Pure at Every Step
-                </h2>
-                <p className="mt-6 text-gray-700 text-base md:text-xl leading-relaxed">
-                    Sustainably sourced from the UK’s purest seas pure, natural, and
+                </motion.h2>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.6 }}
+                    className="mt-6 text-gray-700 text-base md:text-xl leading-relaxed"
+                >
+                    Sustainably sourced from the UK's purest seas pure, natural, and
                     responsibly produced for a better taste and a better planet.
-                </p>
+                </motion.p>
 
                 {/* CTA Buttons */}
                 <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
                     <motion.div
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.1 }}
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
                     >
                         <Button className="p-6 text-lg">Learn More</Button>
                     </motion.div>
@@ -57,9 +79,10 @@ export default function Hero() {
                     <motion.div
                         whileHover={{ scale: 1.05, y: -2 }}
                         whileTap={{ scale: 0.95 }}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                        transition={{ duration: 0.6, delay: 0.8 }}
                     >
                         <Button className="p-6 text-lg" variant="secondary">
                             Shop Now

@@ -1,14 +1,17 @@
 import Hero from "@/app/sections/Hero";
 import {ReactElement} from "react";
 import About from "@/app/sections/About";
-import HorizontalScrollCards from "@/app/sections/HorizontalCards";
+import WhatWeOffer from "@/app/sections/WhatWeOffer";
+import FeaturedProducts from "@/app/sections/FeaturedProducts";
 
 
 export default function Home(): ReactElement {
     return (
         <>
             <Hero/>
-            <HorizontalScrollCards/>
+            <WhatWeOffer/>
+            <About/>
+            <FeaturedProducts/>
         </>
     );
 }
