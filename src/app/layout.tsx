@@ -1,0 +1,36 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Better Taste Foods ",
+  description: "This site is for a company better taste foods that deals in the sale of salt and other food flavouring entities ",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased xl:px-[5rem] md:px-[3rem] px-[10px]`}
+      >
+        <Navbar/>
+        {children}
+      </body>
+    </html>
+  );
+}

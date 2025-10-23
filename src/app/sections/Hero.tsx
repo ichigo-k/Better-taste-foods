@@ -1,0 +1,74 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {Button} from "@/components/ui/button";
+
+
+export default function Hero() {
+    return (
+        <section
+            id="home"
+            className="mt-5 relative w-full h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
+        >
+
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
+                src="https://cdn.pixabay.com/video/2023/04/28/160767-822213540_large.mp4"
+            ></video>
+
+
+            <div className="absolute inset-0 bg-white/30 "></div>
+
+
+            <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+                className="relative z-10 max-w-2xl px-4"
+            >
+                <h1 className="font-extrabold text-4xl md:text-6xl text-gray-900 drop-shadow-sm">
+                    From Ocean to Table
+                </h1>
+                <h2 className="font-bold text-3xl md:text-5xl mt-2 text-blue-500">
+                    Pure at Every Step
+                </h2>
+                <p className="mt-6 text-gray-700 text-base md:text-xl leading-relaxed">
+                    Sustainably sourced from the UK’s purest seas pure, natural, and
+                    responsibly produced for a better taste and a better planet.
+                </p>
+
+                {/* CTA Buttons */}
+                <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                    <motion.div
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
+                    >
+                        <Button className="p-6 text-lg">Learn More</Button>
+                    </motion.div>
+
+                    {/* Shop Now */}
+                    <motion.div
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.3 }}
+                    >
+                        <Button className="p-6 text-lg" variant="secondary">
+                            Shop Now
+                        </Button>
+                    </motion.div>
+
+                </div>
+            </motion.div>
+
+        </section>
+    );
+}
