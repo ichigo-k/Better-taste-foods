@@ -8,7 +8,7 @@ export default function Hero() {
     return (
         <section
             id="home"
-            className="mt-5 relative w-full md:h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
+            className="mt-5 relative w-full h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
         >
 
             <video
