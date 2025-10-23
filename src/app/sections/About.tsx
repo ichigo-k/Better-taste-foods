@@ -8,10 +8,10 @@ export default function About(): ReactElement {
     return (
         <section
             id="about"
-            className="relative w-full py-16 bg-[#0099ff] text-white overflow-hidden flex flex-col items-center text-center px-6"
+            className="relative w-full py-16 bg-red-500 text-white overflow-hidden flex flex-col items-center text-center px-6"
         >
             {/* Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] animate-[gridMove_20s_linear_infinite]" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(100,100,100,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(100,100,100,0.05)_1px,transparent_1px)] bg-[size:40px_40px] animate-[gridMove_20s_linear_infinite]" />
 
 
             {/* Title */}

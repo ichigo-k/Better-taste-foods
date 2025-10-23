@@ -6,22 +6,22 @@ import { Leaf, Droplet, Heart, ShieldCheck } from "lucide-react";
 
 const offers = [
     {
-        icon: <Leaf className="w-10 h-10 text-[#0099ff]" />,
+        icon: <Leaf className="w-10 h-10 text-red-500" />,
         title: "100% Natural Ingredients",
         desc: "Every grain is naturally harvested and free from additives, giving your meals the purity they deserve.",
     },
     {
-        icon: <Droplet className="w-10 h-10 text-[#0099ff]" />,
+        icon: <Droplet className="w-10 h-10 text-red-500" />,
         title: "Rich in Minerals",
         desc: "Our salts retain essential trace minerals that enhance both taste and nutrition.",
     },
     {
-        icon: <Heart className="w-10 h-10 text-[#0099ff]" />,
+        icon: <Heart className="w-10 h-10 text-red-500" />,
         title: "Sustainably Harvested",
         desc: "We prioritize eco-friendly sourcing methods that protect marine life and the environment.",
     },
     {
-        icon: <ShieldCheck className="w-10 h-10 text-[#0099ff]" />,
+        icon: <ShieldCheck className="w-10 h-10 text-red-500" />,
         title: "Quality You Can Trust",
         desc: "Each batch undergoes strict quality checks to ensure you enjoy only the best sea salt.",
     },

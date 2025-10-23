@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 
 export default function Hero() {
     return (
         <section
             id="home"
-            className="mt-5 relative w-full h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
+            className="mt-3 relative w-full h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
         >
 
             <video
@@ -17,11 +18,11 @@ export default function Hero() {
                 loop
                 playsInline
                 className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
-                src="https://cdn.pixabay.com/video/2023/04/28/160767-822213540_large.mp4"
+                src="https://www.pexels.com/download/video/4791868/"
             ></video>
 
 
-            <div className="absolute inset-0 bg-white/30 "></div>
+            <div className="absolute inset-0 bg-white/20 "></div>
 
 
             <motion.div
@@ -38,7 +39,7 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="font-extrabold text-4xl md:text-6xl text-gray-900 drop-shadow-sm"
                 >
-                    From Ocean to Table
+                    From Nature to You
                 </motion.h1>
 
                 <motion.h2
@@ -46,7 +47,7 @@ export default function Hero() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="font-bold text-3xl md:text-5xl mt-2 text-blue-500"
+                    className="font-bold text-3xl md:text-5xl mt-2 text-red-500"
                 >
                     Pure at Every Step
                 </motion.h2>
@@ -56,10 +57,10 @@ export default function Hero() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.8, delay: 0.6 }}
-                    className="mt-6 text-gray-700 text-base md:text-xl leading-relaxed"
+                    className="mt-6 text-gray-200 text-base md:text-xl leading-relaxed"
                 >
-                    Sustainably sourced from the UK's purest seas pure, natural, and
-                    responsibly produced for a better taste and a better planet.
+                    Sustainably harvested and responsibly refined
+                    bringing you the best of nature while caring for the planet.
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -72,7 +73,11 @@ export default function Hero() {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.8 }}
                     >
-                        <Button className="p-6 text-lg">Learn More</Button>
+                        <Link href="#about">
+                            <Button className="p-6 text-lg">
+                                Learn More
+                            </Button>
+                        </Link>
                     </motion.div>
 
                     {/* Shop Now */}
@@ -84,9 +89,12 @@ export default function Hero() {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.6, delay: 0.8 }}
                     >
-                        <Button className="p-6 text-lg" variant="secondary">
-                            Shop Now
-                        </Button>
+                        <Link href={"#shop"}>
+                            <Button className="p-6 text-lg" variant="secondary">
+                                Shop Now
+                            </Button>
+                        </Link>
+
                     </motion.div>
 
                 </div>
