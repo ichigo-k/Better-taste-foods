@@ -131,3 +131,7 @@ body[data-scroll-locked] {
   padding-right: 0 !important;
 }
 
+html {
+  overflow-y: scroll;
+}
+

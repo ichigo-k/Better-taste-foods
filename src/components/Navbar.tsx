@@ -1,15 +1,18 @@
 "use client";
 
 import React from "react";
-import { User } from "lucide-react";
+import {LogIn, LogOut, User} from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import CartDrawer from "@/components/CartDrawer";
 import MobileMenu from "@/components/MobileMenu";
+import {useAuthStore} from "@/context/AuthContext";
 
 
 export default function Navbar() {
-    const isLoggedIn = true;
+
+
+    const {user, isLoggedIn, loginWithOAuth, logout} = useAuthStore()
 
     const navLinks = [
         { name: "home", link: "#home" },
@@ -21,10 +24,10 @@ export default function Navbar() {
         <nav className="w-full py-2 sticky top-0 z-[999] bg-white/80 backdrop-blur-lg">
             <div className="section-content flex items-center justify-between">
 
-                <div className="text-2xl font-bold leading-tight">
+                <Link href={"/"} className="text-2xl font-bold leading-tight">
                     <h2>Better Taste</h2>
                     <h3 className="text-red-400">Foods</h3>
-                </div>
+                </Link>
 
 
                 <div className="hidden md:flex items-center gap-10">
@@ -43,9 +46,12 @@ export default function Navbar() {
 
                 <div className="flex items-center gap-4">
                     {isLoggedIn ? (
-                        <Button className="cursor-pointer">Dashboard</Button>
+                       <>
+                           <Link href={"/dashboard"}><Button className="cursor-pointer">Dashboard</Button></Link>
+                           <LogOut className="cursor-pointer" onClick={() => logout()}/>
+                       </>
                     ) : (
-                        <User className="cursor-pointer" />
+                        <LogIn className="cursor-pointer" onClick={() => loginWithOAuth("google")} />
                     )}
 
                     <CartDrawer />
