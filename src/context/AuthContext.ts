@@ -4,6 +4,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { supabase } from "@/lib/supabaseClient";
 
+
 interface User {
     id: string;
     name: string;
@@ -70,6 +71,8 @@ export const useAuthStore = create<AuthState>()(
                         set({ user: null, isLoggedIn: false });
                     }
                 },
+
+
             };
         },
         { name: "auth-storage" }
