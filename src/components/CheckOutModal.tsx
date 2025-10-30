@@ -85,7 +85,7 @@ export default function CheckoutModal({
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-md z-[1000]">
+            <DialogContent className="max-w-md z-[200]">
                 <DialogHeader>
                     <DialogTitle>Checkout</DialogTitle>
                 </DialogHeader>

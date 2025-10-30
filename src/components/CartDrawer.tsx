@@ -33,7 +33,7 @@ export default function CartDrawer() {
                     </button>
                 </DrawerTrigger>
 
-                <DrawerContent className="fixed right-0 top-0 h-screen w-[90vw] sm:w-[400px] bg-white shadow-xl border-l border-gray-200 flex flex-col z-[900] animate-in slide-in-from-right duration-300">
+                <DrawerContent className="fixed right-0 top-0 h-screen w-[90vw] sm:w-[400px] bg-white shadow-xl border-l border-gray-200 flex flex-col z-[100] animate-in slide-in-from-right duration-300">
                     <DrawerHeader className="px-6 py-4 border-b">
                         <DrawerTitle className="text-xl font-semibold text-gray-800">Your Cart</DrawerTitle>
                     </DrawerHeader>

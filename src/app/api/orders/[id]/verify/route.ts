@@ -1,14 +1,16 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/PrismaClient";
 
-export async function POST(req: Request, { params }: { params: { id: string } }) {
-    const { reference } = await req.json();
-
-    if (!reference) {
-        return NextResponse.json({ error: "Missing reference" }, { status: 400 });
-    }
-
+export async function POST(req: Request, context: { params: Promise<{ id: string }> }) {
     try {
+
+        const { id } = await context.params;
+
+        const { reference } = await req.json();
+        if (!reference) {
+            return NextResponse.json({ error: "Missing reference" }, { status: 400 });
+        }
+
 
         const verifyRes = await fetch(`https://api.paystack.co/transaction/verify/${reference}`, {
             headers: {
@@ -22,8 +24,15 @@ export async function POST(req: Request, { params }: { params: { id: string } })
             return NextResponse.json({ error: "Payment not verified" }, { status: 400 });
         }
 
+
+        const orderId = Number(id);
+        if (isNaN(orderId)) {
+            return NextResponse.json({ error: "Invalid order ID" }, { status: 400 });
+        }
+
+
         const order = await prisma.order.update({
-            where: { id: Number(params.id) },
+            where: { id: orderId },
             data: {
                 status: "paid",
                 reference: data.data.reference,
