@@ -9,7 +9,7 @@ import { useState } from "react";
 interface CheckoutModalProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
-    cart: never[];
+    cart: any[];
     totalPrice: number;
     clearCart: () => void;
 }

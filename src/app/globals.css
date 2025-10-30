@@ -134,4 +134,8 @@ body[data-scroll-locked] {
 html {
   overflow-y: scroll;
 }
-
+.paystack-popup,
+iframe[src*="paystack"] {
+  z-index: 999999 !important;
+  position: relative !important;
+}
