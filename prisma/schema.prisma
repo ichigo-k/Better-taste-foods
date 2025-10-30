@@ -15,3 +15,28 @@ model AllowedUser {
   email     String
   createdAt DateTime @default(now())
 }
+
+model Product {
+  id         Int      @id @default(autoincrement())
+  name       String
+  price      Float
+  discount   Int      @default(0)
+  outOfStock Boolean  @default(false)
+  image      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String
+  address   String
+  total     Float
+  status    String   @default("pending")
+  reference String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  items     Json
+}

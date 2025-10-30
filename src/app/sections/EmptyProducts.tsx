@@ -17,7 +17,7 @@ export default function EmptyProducts() {
                 }}
                 className="p-6 inline-block"
             >
-                <Package size={200} className="text-blue-600 " />
+                <Package size={200} className="text-red-600 " />
             </motion.div>
 
 

@@ -7,7 +7,7 @@ export async function checkUserAllowed(email: string | undefined) {
         if(!email){
             return false
         }
-        const allowed = await prisma.allowedUsers.findFirst({
+        const allowed = await prisma.allowedUser.findFirst({
             where: { email },
         });
         return !!allowed;

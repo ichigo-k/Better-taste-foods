@@ -1,18 +1,17 @@
 "use client";
 
-import React from "react";
-import {LogIn, LogOut, User} from "lucide-react";
+import React, { useState } from "react";
+import { LogIn, LogOut } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import CartDrawer from "@/components/CartDrawer";
 import MobileMenu from "@/components/MobileMenu";
-import {useAuthStore} from "@/context/AuthContext";
-
+import { useAuthStore } from "@/context/AuthContext";
+import LoginModal from "@/components/LoginModal";
 
 export default function Navbar() {
-
-
-    const {user, isLoggedIn, loginWithOAuth, logout} = useAuthStore()
+    const { isLoggedIn, logout } = useAuthStore();
+    const [loginOpen, setLoginOpen] = useState(false);
 
     const navLinks = [
         { name: "home", link: "#home" },
@@ -23,41 +22,49 @@ export default function Navbar() {
     return (
         <nav className="w-full py-2 sticky top-0 z-[999] bg-white/80 backdrop-blur-lg">
             <div className="section-content flex items-center justify-between">
-
-                <Link href={"/"} className="text-2xl font-bold leading-tight">
+                {/* Logo */}
+                <Link href="/" className="text-2xl font-bold leading-tight">
                     <h2>Better Taste</h2>
                     <h3 className="text-red-400">Foods</h3>
                 </Link>
 
-
+                {/* Desktop Nav Links */}
                 <div className="hidden md:flex items-center gap-10">
-                    {navLinks.map((element, key) => (
+                    {navLinks.map((link, i) => (
                         <Link
-                            key={key}
-                            href={element.link}
+                            key={i}
+                            href={link.link}
                             scroll={true}
                             className="capitalize font-medium transition-colors duration-300 hover:text-red-500"
                         >
-                            {element.name}
+                            {link.name}
                         </Link>
                     ))}
                 </div>
 
-
-                <div className="flex items-center gap-4">
+                {/* Desktop Actions */}
+                <div className="hidden md:flex items-center gap-4">
                     {isLoggedIn ? (
-                       <>
-                           <Link href={"/dashboard"}><Button className="cursor-pointer">Dashboard</Button></Link>
-                           <LogOut className="cursor-pointer" onClick={() => logout()}/>
-                       </>
+                        <>
+                            <Link href="/dashboard">
+                                <Button className="cursor-pointer">Dashboard</Button>
+                            </Link>
+                            <LogOut className="cursor-pointer" onClick={logout} />
+                        </>
                     ) : (
-                        <LogIn className="cursor-pointer" onClick={() => loginWithOAuth("google")} />
+                        <LogIn className="cursor-pointer" onClick={() => setLoginOpen(true)} />
                     )}
 
                     <CartDrawer />
+                </div>
+
+                {/* Mobile Menu */}
+                <div className="md:hidden">
                     <MobileMenu navLinks={navLinks} />
                 </div>
             </div>
+
+            <LoginModal open={loginOpen} onOpenChange={setLoginOpen} />
         </nav>
     );
 }
