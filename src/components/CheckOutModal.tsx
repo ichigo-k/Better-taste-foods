@@ -50,6 +50,8 @@ export default function CheckoutModal({
             return;
         }
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
         const PaystackPop = (await import("@paystack/inline-js")).default;
         const paystack = new PaystackPop();
 
