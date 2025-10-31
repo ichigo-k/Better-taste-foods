@@ -1,6 +1,18 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/PrismaClient";
 
+export async function GET() {
+    try {
+        const orders = await prisma.order.findMany({
+            orderBy: { createdAt: "desc" },
+        });
+        return NextResponse.json(orders, { status: 200 });
+    } catch (error) {
+        console.error("Error fetching orders:", error);
+        return NextResponse.json({ error: "Failed to fetch orders" }, { status: 500 });
+    }
+}
+
 export async function POST(req: Request) {
     try {
         const body = await req.json();

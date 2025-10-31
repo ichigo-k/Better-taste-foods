@@ -9,6 +9,7 @@ import { useState } from "react";
 interface CheckoutModalProps {
     open: boolean;
     onOpenChange: (open: boolean) => void;
+    onCartChange: (open: boolean) => void;
     cart: any[];
     totalPrice: number;
     clearCart: () => void;
@@ -17,6 +18,7 @@ interface CheckoutModalProps {
 export default function CheckoutModal({
                                           open,
                                           onOpenChange,
+                                          onCartChange,
                                           cart,
                                           totalPrice,
                                           clearCart,
@@ -50,10 +52,14 @@ export default function CheckoutModal({
             return;
         }
 
+        onOpenChange(false)
+        onCartChange(false)
+
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
         const PaystackPop = (await import("@paystack/inline-js")).default;
         const paystack = new PaystackPop();
+
 
         paystack.newTransaction({
             key: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY!,
@@ -87,12 +93,12 @@ export default function CheckoutModal({
 
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="max-w-md z-[200]">
+            <DialogContent className="max-w-md z-[700]">
                 <DialogHeader>
                     <DialogTitle>Checkout</DialogTitle>
                 </DialogHeader>
 
-                <div className="space-y-3 mt-3">
+                <div className="space-y-3 mt-3 ">
                     <Input name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
                     <Input name="email" placeholder="Email" type="email" value={form.email} onChange={handleChange} />
                     <Input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} />

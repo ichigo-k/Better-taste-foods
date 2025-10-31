@@ -1,19 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useCartStore } from "@/context/CartStore";
-import { useState } from "react";
 import CheckoutModal from "@/components/CheckOutModal";
-
 
 export default function CartDrawer() {
     const cart = useCartStore((state) => state.cart);
     const addToCart = useCartStore((state) => state.addToCart);
     const removeFromCart = useCartStore((state) => state.removeFromCart);
     const clearCart = useCartStore((state) => state.clearCart);
+
+    const [cartOpen, setCartOpen] = useState(false);
     const [checkoutOpen, setCheckoutOpen] = useState(false);
 
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -21,21 +22,25 @@ export default function CartDrawer() {
 
     return (
         <>
-            <Drawer direction="right">
+            {/* Cart Button */}
+            <Drawer open={cartOpen} onOpenChange={setCartOpen} direction="right">
                 <DrawerTrigger asChild>
-                    <button className="relative p-2">
-                        <ShoppingCart size={22} className="text-gray-700 hover:text-red-500 transition-colors" />
+                    <Button
+                        className="fixed top-5 right-5 z-50"
+                        variant="outline"
+                    >
+                        <ShoppingCart size={22} />
                         {totalItems > 0 && (
                             <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                 {totalItems}
               </span>
                         )}
-                    </button>
+                    </Button>
                 </DrawerTrigger>
 
-                <DrawerContent className="fixed right-0 top-0 h-screen w-[90vw] sm:w-[400px] bg-white shadow-xl border-l border-gray-200 flex flex-col z-[100] animate-in slide-in-from-right duration-300">
+                <DrawerContent className="w-[90vw] sm:w-[400px] h-screen bg-white shadow-xl border-l border-gray-200 flex flex-col z-[500]">
                     <DrawerHeader className="px-6 py-4 border-b">
-                        <DrawerTitle className="text-xl font-semibold text-gray-800">Your Cart</DrawerTitle>
+                        <DrawerTitle>Your Cart</DrawerTitle>
                     </DrawerHeader>
 
                     <div className="flex-1 overflow-y-auto p-6 space-y-4">
@@ -49,24 +54,20 @@ export default function CartDrawer() {
                                     </div>
                                     <div className="flex-1">
                                         <h4 className="text-md font-semibold text-gray-800">{item.name}</h4>
-                                        <p className="text-sm text-gray-500">GH₵ {(item.price * (1 - item.discount / 100)).toFixed(2)}</p>
+                                        <p className="text-sm text-gray-500">
+                                            GH₵ {(item.price * (1 - item.discount / 100)).toFixed(2)}
+                                        </p>
                                         <div className="flex items-center gap-2 mt-2">
-                                            <button
-                                                onClick={() => addToCart(item, -1)}
-                                                className="bg-gray-200 hover:bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full"
-                                            >
+                                            <Button size="icon" variant="outline" onClick={() => addToCart(item, -1)}>
                                                 <Minus size={14} />
-                                            </button>
+                                            </Button>
                                             <span className="text-sm font-medium">{item.quantity}</span>
-                                            <button
-                                                onClick={() => addToCart(item, 1)}
-                                                className="bg-gray-200 hover:bg-gray-300 w-6 h-6 flex items-center justify-center rounded-full"
-                                            >
+                                            <Button size="icon" variant="outline" onClick={() => addToCart(item, 1)}>
                                                 <Plus size={14} />
-                                            </button>
-                                            <button onClick={() => removeFromCart(item.id)} className="ml-auto text-red-500 hover:text-red-600">
+                                            </Button>
+                                            <Button variant="ghost" className="ml-auto text-red-500" onClick={() => removeFromCart(item.id)}>
                                                 <Trash2 size={16} />
-                                            </button>
+                                            </Button>
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +82,10 @@ export default function CartDrawer() {
                                 <span>GH₵ {totalPrice.toFixed(2)}</span>
                             </div>
                             <div className="flex flex-col gap-2">
-                                <Button className="w-full bg-red-500 hover:bg-red-600 text-white" onClick={() => setCheckoutOpen(true)}>
+                                <Button className="w-full bg-red-500 hover:bg-red-600 text-white" onClick={() => {
+                                    setCheckoutOpen(true)
+                                    setCartOpen(false)
+                                }}>
                                     Checkout
                                 </Button>
                                 <Button className="w-full bg-gray-200 hover:bg-gray-300 text-gray-800" onClick={clearCart}>
@@ -93,10 +97,11 @@ export default function CartDrawer() {
                 </DrawerContent>
             </Drawer>
 
-
+            {/* Checkout Modal */}
             <CheckoutModal
                 open={checkoutOpen}
                 onOpenChange={setCheckoutOpen}
+                onCartChange={setCartOpen}
                 cart={cart}
                 totalPrice={totalPrice}
                 clearCart={clearCart}

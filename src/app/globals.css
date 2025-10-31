@@ -136,6 +136,5 @@ html {
 }
 .paystack-popup,
 iframe[src*="paystack"] {
-  z-index: 999999 !important;
-  position: relative !important;
+  z-index: 900;
 }

@@ -7,13 +7,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className="flex h-[70%] bg-background text-foreground relative">
-
+        <div className="flex h-screen  bg-background text-foreground relative overflow-hidden">
+            {/* Sidebar */}
             <SideBar />
 
-
-            <main className="flex-1 ml-[18%] p-6 overflow-y-auto">
-                {children}
+            {/* Main scrollable content */}
+            <main className="flex-1 md:ml-[18%] ml-0 p-6 overflow-y-auto">
+                <div className="max-w-[1440px] mx-auto">{children}</div>
             </main>
         </div>
     );
