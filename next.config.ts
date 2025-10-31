@@ -2,14 +2,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["images.pexels.com", "picsum.photos", "feapcnfddxqiecvepmnc.supabase.co"],
+    remotePatterns: [
+      { protocol: "https", hostname: "images.pexels.com" },
+      { protocol: "https", hostname: "picsum.photos" },
+      { protocol: "https", hostname: "feapcnfddxqiecvepmnc.supabase.co" },
+    ],
   },
   reactCompiler: true,
-  outputFileTracingIncludes: {
-    '/api/**/*': ['./node_modules/.prisma/client/**/*'],
-    '/*': ['./node_modules/.prisma/client/**/*'],
-  },
-};
 
+};
 
 export default nextConfig;
