@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
     domains: ["images.pexels.com", "picsum.photos", "feapcnfddxqiecvepmnc.supabase.co"],
   },
   reactCompiler: true,
+  outputFileTracingIncludes: {
+    '/api/**/*': ['./node_modules/.prisma/client/**/*'],
+    '/*': ['./node_modules/.prisma/client/**/*'],
+  },
 };
 
 
