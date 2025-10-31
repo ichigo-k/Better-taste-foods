@@ -6,6 +6,7 @@ import { Trash2, Eye } from "lucide-react";
 import { toast } from "sonner";
 import OrderModal from "./OrderModal";
 import { formatDistanceToNow } from "date-fns";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 interface Order {
     id: number;
@@ -73,6 +74,7 @@ export default function Orders() {
     if (loading) return <p>Loading orders...</p>;
 
     return (
+        <ProtectedRoute>
         <div className="p-6">
             <h1 className="text-2xl font-bold mb-4">Orders</h1>
 
@@ -117,6 +119,7 @@ export default function Orders() {
                         </table>
                     </div>
                 </div>
+
             ))}
 
             {selectedOrder && (
@@ -127,5 +130,7 @@ export default function Orders() {
                 />
             )}
         </div>
+
+        </ProtectedRoute>
     );
 }
