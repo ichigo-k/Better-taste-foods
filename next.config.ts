@@ -1,6 +1,8 @@
-// next.config.ts
+
 import type { NextConfig } from "next";
-import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
+import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin";
 
 const nextConfig: NextConfig = {
   images: {
