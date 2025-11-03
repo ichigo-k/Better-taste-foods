@@ -8,6 +8,7 @@ import CartDrawer from "@/components/CartDrawer";
 import MobileMenu from "@/components/MobileMenu";
 import { useAuthStore } from "@/context/AuthContext";
 import LoginModal from "@/components/LoginModal";
+import Image from "next/image";
 
 export default function Navbar() {
     const { isLoggedIn, logout } = useAuthStore();
@@ -23,9 +24,13 @@ export default function Navbar() {
         <nav className="w-full py-2 sticky top-0 z-[300] bg-white/80 backdrop-blur-lg">
             <div className="section-content flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="text-2xl font-bold leading-tight">
-                    <h2>Better Taste</h2>
-                    <h3 className="text-red-400">Foods</h3>
+                <Link href="/" className="text-2xl font-bold flex items-center">
+                    <Image src={"/logo.png"} alt={"logo"} width={100} height={100}/>
+                    <div className={"leading-tight "}>
+                        <h2>Better Taste</h2>
+                        <h3 className="text-red-400">Foods</h3>
+                    </div>
+
                 </Link>
 
                 {/* Desktop Nav Links */}
