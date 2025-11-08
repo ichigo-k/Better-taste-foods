@@ -3,6 +3,7 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import HorizontalCards from "@/app/sections/HorizontalCards";
+import Image from "next/image";
 
 export default function About(): ReactElement {
     return (
@@ -11,7 +12,8 @@ export default function About(): ReactElement {
             className="relative w-full py-16 bg-red-500 text-white overflow-hidden flex flex-col items-center text-center px-6"
         >
             {/* Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(100,100,100,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(100,100,100,0.05)_1px,transparent_1px)] bg-[size:40px_40px] animate-[gridMove_20s_linear_infinite]" />
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(100,100,100,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(100,100,100,0.05)_1px,transparent_1px)] bg-[size:40px_40px] animate-[gridMove_20s_linear_infinite]" >
+            </div>
 
 
             {/* Title */}
@@ -32,9 +34,10 @@ export default function About(): ReactElement {
                 transition={{ delay: 0.2, duration: 0.6 }}
             >
                 At <span className="font-semibold text-white">Better Taste Foods</span>, we
-                believe that purity and flavor go hand in hand. Our mission is to bring
-                naturally harvested sea salt, rich in minerals and sustainably produced,
-                from the ocean straight to your table.
+                are passionate about sourcing and crafting ingredients that inspire
+                creativity in every kitchen. From farm-fresh produce to naturally processed
+                essentials, our goal is to deliver pure, authentic, and flavorful
+                ingredients you can trust.
             </motion.p>
 
             {/* Subtext */}
@@ -44,12 +47,12 @@ export default function About(): ReactElement {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
             >
-                Every crystal we craft tells a story of care, sustainability, and an
-                unwavering commitment to quality ensuring that every meal you prepare
-                is touched by the freshness of the sea.
+                Each ingredient we offer reflects our dedication to quality,
+                sustainability, and taste ensuring that every dish you create
+                carries the essence of natural goodness and wholesome flavor.
             </motion.p>
 
-            <HorizontalCards/>
+            <HorizontalCards />
         </section>
     );
 }

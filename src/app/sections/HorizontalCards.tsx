@@ -9,26 +9,27 @@ export default function HorizontalCards(){
     const features = [
         {
             icon: Sprout,
-            title: "Naturally Harvested",
-            description: "Harvested from pristine natural deposits in our region",
-            image:"/image1.png"
+            title: "Freshly Sourced",
+            description: "Carefully selected ingredients from trusted sources",
+            image: "/image1.png"
         },
         {
             icon: Droplet,
-            title: "Rich in Minerals",
-            description: "Packed with essential trace minerals for optimal health",
-            image:"/image2.jpg"
+            title: "Nutrient-Rich",
+            description: "Packed with essential nutrients for a healthier lifestyle",
+            image: "/image2.jpg"
         },
-        // {
-        //     icon: Sparkles,
-        //     title: "Enhances Every Meal",
-        //     description: "Brings out the natural flavors in all your favorite dishes",
-        //     image:"https://images.pexels.com/photos/6690866/pexels-photo-6690866.jpeg"
-        // }
-    ]
+        {
+            icon: Sparkles,
+            title: "Elevates Every Dish",
+            description: "Enhances the natural flavors in any recipe",
+            image: "/image3.png"
+        }
+    ];
+
 
     return (
-        <section className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 mx-auto">
+        <section className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto">
             {features.map((item, index) => {
                 const IconComponent = item.icon;
                 return(

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 
 export default function Hero() {
@@ -12,14 +13,16 @@ export default function Hero() {
             className="mt-3 relative w-full h-[40rem] flex flex-col items-center justify-center text-center overflow-hidden bg-gradient-to-b from-blue-50 to-white"
         >
 
-            <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute top-0 left-0 w-full h-full object-cover rounded-md"
-                src="https://www.pexels.com/download/video/4791868/"
-            ></video>
+            {/*<video*/}
+            {/*    autoPlay*/}
+            {/*    muted*/}
+            {/*    loop*/}
+            {/*    playsInline*/}
+            {/*    className="absolute top-0 left-0 w-full h-full object-cover rounded-md"*/}
+            {/*    src="https://www.pexels.com/download/video/4791868/"*/}
+            {/*></video>*/}
+
+            <Image src={"/hero1.png"} alt={"hero"} height={1000} width={1000} className="absolute top-0 left-0 w-full h-full object-cover rounded-md"/>
 
 
             <div className="absolute inset-0 bg-white/20 "></div>
