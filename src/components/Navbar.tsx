@@ -21,7 +21,7 @@ export default function Navbar() {
     ];
 
     return (
-        <nav className="w-full py-2 sticky top-0 z-[300] bg-white/80 backdrop-blur-lg">
+        <nav className="w-full sticky top-0 z-[300] bg-white/80 backdrop-blur-lg">
             <div className="section-content flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="text-2xl font-bold flex items-center">
