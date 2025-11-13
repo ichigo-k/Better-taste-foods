@@ -25,10 +25,6 @@ const child = {
 };
 
 export default function Hero() {
-    // @ts-ignore
-    // @ts-ignore
-    // @ts-ignore
-    // @ts-ignore
     return (
         <section
             id="home"
@@ -83,7 +79,7 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 0.8 }}
                     >
                         <Link href={"#about"}>
-                            <Button className="p-6 text-lg bg-red-500">Learn More</Button>
+                            <Button className="p-6 text-lg bg-red-500 hover:bg-red-600">Learn More</Button>
                         </Link>
                     </motion.div>
 
