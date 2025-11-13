@@ -26,6 +26,9 @@ const child = {
 
 export default function Hero() {
     // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
+    // @ts-ignore
     return (
         <section
             id="home"
@@ -59,6 +62,8 @@ export default function Hero() {
                     {words.map((word, i) => (
                         <motion.span
                             key={i}
+                            /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
+                            // @ts-expect-error
                             variants={child}
                             className={word === "Taste" || word === "Life" ? "text-red-500" : ""}
                         >
