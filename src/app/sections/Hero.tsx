@@ -35,7 +35,7 @@ export default function Hero() {
                 alt={"hero"}
                 height={1000}
                 width={1000}
-                className="absolute top-0 left-0 w-full h-full rounded-md"
+                className="absolute max-md:object-cover top-0 left-0 w-full h-full rounded-md"
             />
 
             <div className="absolute inset-0 bg-black/30 "></div>
@@ -47,7 +47,7 @@ export default function Hero() {
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="relative z-10 max-w-2xl px-4"
             >
-                {/* === Animated Heading === */}
+
                 <motion.h1
                     variants={container}
                     initial="hidden"
