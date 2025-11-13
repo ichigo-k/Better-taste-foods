@@ -27,7 +27,7 @@ export default function FeaturedProducts() {
     }, []);
 
     return (
-        <section id="shop" className="relative w-full py-20 text-gray-900">
+        <section id="shop" className="relative w-full py-20 text-gray-600">
             <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
                 <motion.h2
                     className="text-4xl md:text-5xl font-bold mb-4"

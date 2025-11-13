@@ -15,9 +15,9 @@ export default function Navbar() {
     const [loginOpen, setLoginOpen] = useState(false);
 
     const navLinks = [
-        { name: "home", link: "/" },
-        { name: "about us", link: "#about" },
-        { name: "shop", link: "#shop" },
+        { name: "HOME ", link: "/" },
+        { name: "ABOUT US ", link: "#about" },
+        { name: "SHOP", link: "#shop" },
     ];
 
     return (

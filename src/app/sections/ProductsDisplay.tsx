@@ -51,7 +51,7 @@ export default function ProductsDisplay({ products }: ProductsDisplayProps) {
                                 src={item.image}
                                 alt={item.name}
                                 fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-700 rounded-lg"
+                                className=" group-hover:scale-105 transition-transform duration-700 rounded-lg"
                                 priority
                             />
                             {item.outOfStock && (

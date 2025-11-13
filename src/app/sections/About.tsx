@@ -3,7 +3,7 @@
 import { ReactElement } from "react";
 import { motion } from "framer-motion";
 import HorizontalCards from "@/app/sections/HorizontalCards";
-import Image from "next/image";
+
 
 export default function About(): ReactElement {
     return (

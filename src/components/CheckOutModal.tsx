@@ -99,18 +99,22 @@ export default function CheckoutModal({
                 </DialogHeader>
 
                 <div className="space-y-3 mt-3 ">
-                    <Input name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
-                    <Input name="email" placeholder="Email" type="email" value={form.email} onChange={handleChange} />
-                    <Input name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} />
-                    <Input name="address" placeholder="Address" value={form.address} onChange={handleChange} />
+                    <Input className={"p-5"} name="name" placeholder="Full Name" value={form.name} onChange={handleChange} />
+                    <Input className={"p-5"} name="email" placeholder="Email" type="email" value={form.email} onChange={handleChange} />
+
+                    <div className={"flex w-full items-center gap-4 "}>
+                        <Input className={"p-5"} name="phone" placeholder="Phone" value={form.phone} onChange={handleChange} />
+                        <Input className={"p-5"} name="address" placeholder="Address" value={form.address} onChange={handleChange} />
+                    </div>
 
                     <div className="mt-4">
                         <Button
-                            className="w-full bg-red-600 hover:bg-red-700 text-white"
+                            className="w-full p-5  bg-red-600 hover:bg-red-700 text-white"
                             onClick={handlePay}
                         >
-                            Pay GH₵ {totalPrice.toFixed(2)}
+                            Pay GH₵{totalPrice.toFixed(2)}
                         </Button>
+                        <div className="text-sm mt-5 text-gray-400 text-center mt-1">Secure checkout powered by Paystack</div>
                     </div>
                 </div>
             </DialogContent>

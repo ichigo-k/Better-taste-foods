@@ -138,3 +138,8 @@ html {
 iframe[src*="paystack"] {
   z-index: 900;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+

@@ -45,7 +45,7 @@ export default function CartDrawer() {
 
                     <div className="flex-1 overflow-y-auto p-6 space-y-4">
                         {cart.length === 0 ? (
-                            <p className="text-gray-500 text-center mt-10">Your cart is empty 🛍️</p>
+                            <p className="text-gray-500 text-center mt-10">Your cart is empty</p>
                         ) : (
                             cart.map((item) => (
                                 <div key={item.id} className="flex items-center gap-4 border-b pb-4">

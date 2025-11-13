@@ -29,17 +29,19 @@ const offers = [
 
 export default function WhatWeOffer(): ReactElement {
     return (
-        <section id="offers" className="relative w-full py-20 bg-white text-gray-800">
+        <section id="offers" className="relative w-full py-20 bg-white text-gray-600">
             <div className="max-w-6xl mx-auto px-6 text-center">
                 {/* Title */}
                 <motion.h2
-                    className="text-4xl md:text-5xl font-bold mb-4 z-10"
+                    className="relative  p-1 text-4xl md:text-5xl font-bold mb-4 z-10 inline-block"
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                 >
-                    What We Offer
+                    <span className="relative z-10">What We Offer</span>
+                    <span className="absolute inset-x-0 bottom-1 h-3  bg-gradient-to-r from-red-400 to-red-500 rounded-md -z-0"></span>
                 </motion.h2>
+
 
                 {/* Tagline */}
                 <motion.p

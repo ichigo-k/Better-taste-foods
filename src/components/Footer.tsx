@@ -24,7 +24,7 @@ export default function Footer() {
 
                 <p className="text-sm text-gray-500 flex items-center justify-center gap-2">
                     Built with <Heart className="text-red-500 w-4 h-4" /> by
-                    <span className="text-white font-medium">Hany.Net IT Solutions</span>
+                    <span className="text-white font-medium">Handy Net IT Solutions</span>
                 </p>
 
                 <p className="text-xs text-gray-600 mt-2">
