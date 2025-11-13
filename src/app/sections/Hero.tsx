@@ -35,7 +35,7 @@ export default function Hero() {
                 alt={"hero"}
                 height={1000}
                 width={1000}
-                className="absolute max-md:object-cover top-0 left-0 w-full h-full rounded-md"
+                className="absolute object-fill max-md:object-cover top-0 left-0 w-full h-full rounded-md"
             />
 
             <div className="absolute inset-0 bg-black/30 "></div>
